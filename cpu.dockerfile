@@ -13,12 +13,12 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
     echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse" >>/etc/apt/sources.list && \
     echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse" >>/etc/apt/sources.list && \
     echo "deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse" >>/etc/apt/sources.list && \
-    apt-get update && apt-get install -y libicu-dev wget && \
+    apt-get update && apt-get install -y libc6 libicu-dev wget curl g++-11 && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /q && \
     wget -O /q/qli-Client-${version}-Linux-x64.tar.gz https://dl.qubic.li/downloads/qli-Client-${version}-Linux-x64.tar.gz && \
-    tar -xzvf /q/qli-Client-${version}-Linux-x64.tar.gz -C /q/ && \ 
-    rm /q/qli-Client-${version}-Linux-x64.tar.gz && \   
+    tar -xzvf /q/qli-Client-${version}-Linux-x64.tar.gz -C /q/ && \
+    rm /q/qli-Client-${version}-Linux-x64.tar.gz && \
     mv /q/qli-Client /q/trainer
 
 # 设置工作目录
