@@ -1,12 +1,12 @@
 # qubic-docker
 
-> <u>*本教程在ubuntu上实现*</u>
->
-> <u>*其余系统可自行安装Docker和Nvidia容器工具*</u>
->
-> <u>*并跳至步骤三*</u>
+**本仓库仅用于学习交流，请勿用于违法用途**
 
-
+> `<u>`*本教程在ubuntu上实现*`</u>`
+>
+> `<u>`*其余系统可自行安装Docker和Nvidia容器工具*`</u>`
+>
+> `<u>`*并跳至步骤三*`</u>`
 
 **步骤一：安装显卡驱动(CUDA可选安装)**
 
@@ -27,7 +27,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/
 安装nvidia密钥
 
 ```shell
-sudo dpkg -i /tmp/cuda-keyring_1.0-1_all.deb 
+sudo dpkg -i ./cuda-keyring_1.0-1_all.deb 
 ```
 
 更新软件源
@@ -39,7 +39,7 @@ sudo apt-get update
 安装驱动
 
 ```shell
-apt install  cuda-drivers-fabricmanager_545
+apt install  cuda-drivers-fabricmanager
 ```
 
 如果你想要CUDA一同安装用如下命令
@@ -90,4 +90,3 @@ docker build -t gpu  --build-arg version=1.8.3 -f ./gpu.dockerfile .
 # -e后面接的参数，name参数是你的矿工名字，token是你的token，num是使用到的线程数， --gpus all是使用全部gpu（你也可以指定使用某个GPU），-d gpu是指使用名为gpu的镜像
 docker run -e name=work2 -e token="XXX" -e num=y --gpus all  -d gpu
 ```
-
